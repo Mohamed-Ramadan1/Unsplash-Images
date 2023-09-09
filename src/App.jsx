@@ -5,7 +5,6 @@ import SearchForm from "./SearchForm";
 const App = () => {
   return (
     <main>
-      Unsplash Images Starter
       <TheamToggle />
       <Gallery />
       <SearchForm />
