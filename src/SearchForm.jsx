@@ -1,11 +1,15 @@
 import React from "react";
+import { useGlobalContext } from "./context";
 
 const SearchForm = () => {
+  const { updateSearchParam } = useGlobalContext();
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchValue = e.target.elements.search.value;
     if (!searchValue) return;
+    updateSearchParam(searchValue);
   };
+
   return (
     <section>
       <h1 className="title">unsplash images</h1>
@@ -25,6 +29,3 @@ const SearchForm = () => {
 };
 
 export default SearchForm;
-
-//L-2eo4UWu4nzwGYq6Zhi0xsOlzoD9Os8Ajz8HqlBOiQ
-//https://api.unsplash.com/search/photos?client_id=L-2eo4UWu4nzwGYq6Zhi0xsOlzoD9Os8Ajz8HqlBOiQ&query=
