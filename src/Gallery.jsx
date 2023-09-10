@@ -1,14 +1,12 @@
-import { isError, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
+import { useGlobalContext } from "./context";
 import React from "react";
 import customeFeatch from "./customeAxios";
-import { useGlobalContext } from "./context";
 
 const Gallery = () => {
   const { searchParam } = useGlobalContext();
-  console.log(searchParam);
-
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["images"],
+    queryKey: ["images", searchParam],
     queryFn: () => customeFeatch.get(`/${searchParam}`),
   });
 
@@ -29,14 +27,14 @@ const Gallery = () => {
   }
 
   const result = data.data.results;
-  if (result.legnth < 1) {
+  if (result.length < 1) {
     return (
       <section className="image-container">
         <h4>No Result found....</h4>
       </section>
     );
   }
-  console.log(result);
+
   return (
     <section className="image-container">
       {result.map((item) => {

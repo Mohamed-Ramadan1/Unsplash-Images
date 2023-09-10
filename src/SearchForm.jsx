@@ -2,12 +2,12 @@ import React from "react";
 import { useGlobalContext } from "./context";
 
 const SearchForm = () => {
-  const { updateSearchParam } = useGlobalContext();
+  const { setSearchParam } = useGlobalContext();
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchValue = e.target.elements.search.value;
     if (!searchValue) return;
-    updateSearchParam(searchValue);
+    setSearchParam(searchValue);
   };
 
   return (

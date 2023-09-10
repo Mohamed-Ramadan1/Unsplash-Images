@@ -12,11 +12,9 @@ export const AppProvider = ({ children }) => {
     body.classList.toggle("dark-theme", newDarkThem);
   };
 
-  const updateSearchParam = (newSearchParam) => {};
-
   return (
     <AppContext.Provider
-      value={{ isDartkTheme, toggleDarkThem, updateSearchParam, searchParam }}
+      value={{ isDartkTheme, toggleDarkThem, setSearchParam, searchParam }}
     >
       {children}
     </AppContext.Provider>
